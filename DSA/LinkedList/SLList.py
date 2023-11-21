@@ -175,6 +175,21 @@ class SLList:
         node_at_index.next = None
 
         return node_at_index
+
+    def __str__(self):
+        val = ""
+        if self.is_empty() is False:
+            head = self.get_head()
+
+            while head is not None:
+                val += "[" + str(head.data) + "]"
+                if head.next is None:
+                    val += " -> None"
+                else:
+                    val += " -> "
+                head = head.next
+        return val
+
     pass
 
 
@@ -184,12 +199,4 @@ if __name__ == "__main__":
     for num in range(3):
         sllist.insert_at_head(num)
 
-    head = sllist.get_head()
-
-    while head is not None:
-        print(head)
-        head = head.next
-
-    while head is not None:
-        print(head)
-        head = head.next
+    print(sllist)

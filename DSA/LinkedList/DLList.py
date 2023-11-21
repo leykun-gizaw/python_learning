@@ -98,27 +98,23 @@ class DLList(SLList):
 
     def __str__(self):
         val = ""
-        if self.is_empty() is True:
-            return val
+        if self.is_empty() is False:
+            head = self.get_head()
 
-        temp = self.head
-        val = "[" + str(temp.data) + ", "
-        temp = temp.next
-
-        while temp is not None:
-            val = val + str(temp.data) + ", "
-            temp = temp.next
-        val = val + str(temp.data) + "]"
+            while head is not None:
+                val += "[" + str(head.data) + "]"
+                if head.next is None:
+                    val += " -> None"
+                else:
+                    val += " -> <- "
+                head = head.next
         return val
     pass
 
 
 if __name__ == "__main__":
     lst = DLList()
-    for num in range(5):
+    for num in range(15):
         lst.insert_at_head(num)
     
-    head = lst.get_head()
-    while head is not None:
-        print(head)
-        head = head.next
+    print(lst)
