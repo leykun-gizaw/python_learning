@@ -1,6 +1,6 @@
 from LinkedList import SLList
 
-def remove_duplicates(llist: SLList.LinkedList):
+def remove_duplicates(llist: SLList.SLList):
     current = llist.get_head()
 
     while current is not None:
@@ -20,7 +20,7 @@ def remove_duplicates(llist: SLList.LinkedList):
         current = current.next
     return
 
-def remove_duplicates2(llist: SLList.LinkedList):
+def remove_duplicates2(llist: SLList.SLList):
     """Use a data structure to store duplicates
     """
 
@@ -45,7 +45,7 @@ def remove_duplicates2(llist: SLList.LinkedList):
         cur = cur.next
 
 
-def remove_duplicates3(llist: SLList.LinkedList):
+def remove_duplicates3(llist: SLList.SLList):
     n = llist.get_head()
     m = None
 
@@ -60,14 +60,9 @@ def remove_duplicates3(llist: SLList.LinkedList):
             m = m.next
         n = n.next
 
-def print_list(llist: SLList.LinkedList):
-    l = llist.get_head()
-    while l is not None:
-        print(l)
-        l = l.next
 
 if __name__ == "__main__":
-    llist = SLList.LinkedList()
+    llist = SLList.SLList()
 
     for num in range(5):
         if num % 2 == 0:
@@ -75,9 +70,9 @@ if __name__ == "__main__":
             llist.insert_at_head(num)
         llist.insert_at_head(num)
 
-    print_list(llist)
+    print(llist)
     print()
 
     remove_duplicates2(llist)
 
-    print_list(llist)
+    print(llist)
