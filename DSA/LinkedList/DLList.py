@@ -9,12 +9,6 @@ class DLList(SLList):
     def __init__(self):
         super().__init__()
 
-    def get_head(self):
-        return self.head
-
-    def is_empty(self):
-        return self.head is None
-
     def insert_at_head(self, data):
         new_node = Node(data, set_previous_pointer=True)
 
