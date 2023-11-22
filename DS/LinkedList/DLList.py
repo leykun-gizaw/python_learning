@@ -1,6 +1,6 @@
 """Module defines a singly linked class"""
-from Node import Node
-from SLList import SLList
+from .Node import Node
+from .SLList import SLList
 
 
 class DLList(SLList):
@@ -115,6 +115,6 @@ class DLList(SLList):
 if __name__ == "__main__":
     lst = DLList()
     for num in range(15):
-        lst.insert_at_head(num)
+        lst.insert_at_tail(num)
     
     print(lst)
