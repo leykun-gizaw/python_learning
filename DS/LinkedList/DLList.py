@@ -26,6 +26,8 @@ class DLList(SLList):
 
         if self.head is None:
             self.head = new_node
+        else:
+            self.tail.next = new_node
 
         new_node.prev = self.tail
 
