@@ -1,26 +1,6 @@
-from LinkedList import SLList
+from DS.LinkedList.SLList import SLList
 
-def remove_duplicates(llist: SLList.SLList):
-    current = llist.get_head()
-
-    while current is not None:
-        next = current.next
-        prev = current
-        while next is not None:
-            temp = None
-            if next.data == current.data:
-                prev.next = next.next
-                temp = next
-            else:
-                prev = next
-            next = next.next
-            if temp is not None:
-                temp.next = None
-
-        current = current.next
-    return
-
-def remove_duplicates2(llist: SLList.SLList):
+def remove_duplicates1(llist: SLList):
     """Use a data structure to store duplicates
     """
 
@@ -45,26 +25,31 @@ def remove_duplicates2(llist: SLList.SLList):
         cur = cur.next
 
 
-def remove_duplicates3(llist: SLList.SLList):
+def remove_duplicates2(llist: SLList):
+    """Use only O(1) space"""
     n = llist.get_head()
     m = None
 
     while n is not None:
+        removed = None
         m = n.next
         prev = n
         while m is not None:
             if n.data == m.data:
                 prev.next = m.next
-                break
-            prev = m
+            else:
+                prev = m
             m = m.next
+
+            if removed is not None:
+                removed.next = None
         n = n.next
 
 
 if __name__ == "__main__":
-    llist = SLList.SLList()
+    llist = SLList()
 
-    for num in range(5):
+    for num in range(8):
         if num % 2 == 0:
             llist.insert_at_head(num)
             llist.insert_at_head(num)
