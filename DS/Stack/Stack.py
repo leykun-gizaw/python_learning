@@ -1,4 +1,4 @@
-class MyStack:
+class Stack:
     def __init__(self):
         self.stack_list = []
         self.stack_size = 0
