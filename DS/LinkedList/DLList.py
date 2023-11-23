@@ -19,6 +19,8 @@ class DLList(SLList):
             self.tail = new_node
 
         self.head = new_node
+        self.length += 1
+
         return new_node
 
     def insert_at_tail(self, data):
@@ -32,6 +34,7 @@ class DLList(SLList):
         new_node.prev = self.tail
 
         self.tail = new_node
+        self.length += 1
 
         return new_node
 
@@ -52,11 +55,27 @@ class DLList(SLList):
         traverser.next.prev = new_node
         traverser.next = new_node
 
+        self.length += 1
+
         return new_node
             
+    def remove_at_head(self):
+        head = self.get_head()
+        if head is None:
+            raise Exception("List is empty")
+
+        self.head = self.head.next
+        self.head.prev = None
+
+        head.next = None
+        self.length -= 1
+
+        return head
 
     def remove_at_tail(self):
         tail = self.get_tail()
+        if tail is None:
+            raise Exception("List is empty")
 
         new_tail = tail.prev
         new_tail.next = None
@@ -64,6 +83,8 @@ class DLList(SLList):
         tail.prev = None
         self.tail = new_tail
         
+        self.length -= 1
+
         return tail
 
     def remove_at_index(self, index):
@@ -95,6 +116,8 @@ class DLList(SLList):
 
         node_at_index.next = None
         node_at_index.prev = None
+
+        self.length -= 1
 
         return node_at_index
 
