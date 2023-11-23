@@ -38,6 +38,14 @@ class Queue:
         """
         return self.items.remove_at_head()
 
+    def length(self):
+        """Get the length of the queue
+
+        Returns:
+            Length of the queue
+        """
+        return self.items.length
+
     def __str__(self):
         """Print the queue structure"""
         return self.items.__str__()
