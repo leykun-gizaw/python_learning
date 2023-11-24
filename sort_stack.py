@@ -1,7 +1,15 @@
 from DS.Stack.Stack import Stack
 
 
-def sort_stack(stack: Stack) -> Stack:
+def sort_stack(stack: Stack, descending=False) -> None:
+    """Function sorts a stack. It is a mutating function
+
+    `stack` (Stack): The stack to sort
+    `descending` (bool): Order of sort
+
+    Returns:
+        None
+    """
     helper = Stack()
 
     while stack.is_empty() is False:
@@ -14,7 +22,16 @@ def sort_stack(stack: Stack) -> Stack:
                 stack.push(helper.pop())
             stack.push(top)
 
-    return helper
+    if descending is True:
+        helper2 = Stack()
+        while helper.is_empty() is False:
+            helper2.push(helper.pop())
+        while helper2.is_empty() is False:
+            stack.push(helper2.pop())
+        pass
+    else:
+        while helper.is_empty() is False:
+            stack.push(helper.pop())
 
 
 if __name__ == "__main__":
@@ -25,5 +42,7 @@ if __name__ == "__main__":
         stack.push(num)
 
     print(stack)
-    sorted = sort_stack(stack)
-    print(sorted)
+    sort_stack(stack)
+    print(stack)
+    sort_stack(stack, descending=True)
+    print(stack)
