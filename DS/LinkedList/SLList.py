@@ -176,8 +176,9 @@ class SLList:
         return node_at_index
 
     def __str__(self):
-        val = ""
+        val = "None"
         if self.is_empty() is False:
+            val = ""
             head = self.get_head()
 
             while head is not None:
