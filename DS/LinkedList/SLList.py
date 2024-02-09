@@ -89,10 +89,12 @@ class SLList:
         """
         new_node = Node(data)
 
-        if index >= self.length:
+        if index >= self.length or index < 0:
             raise Exception("Index out of range")
         elif index == 0:
             return self.insert_at_head(data)
+        elif index == self.length - 1:
+            return self.insert_at_tail(data)
 
         traverser = self.get_head()
         while index != 1:
@@ -100,7 +102,7 @@ class SLList:
             index -= 1
 
         new_node.next = traverser.next
-        traverser = new_node
+        traverser.next = new_node
 
         self.length += 1
         return new_node
@@ -196,7 +198,9 @@ class SLList:
 if __name__ == "__main__":
     sllist = SLList()
 
-    for num in range(3):
-        sllist.insert_at_head(num)
+    for num in range(1, 5):
+        sllist.insert_at_tail(num)
 
+    print(sllist)
+    sllist.insert_at_index(1.5, 1)
     print(sllist)
