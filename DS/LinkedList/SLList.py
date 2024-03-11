@@ -132,19 +132,20 @@ class SLList:
             raise Exception("List is empty")
         elif self.length == 1:
             tail = self.head
-            self.head = None
-            self.tail = None
+
+            self.head, self.tail = None, None
+            self.length -= 1
 
             return tail
 
         traverser = self.get_head()
-
         while traverser.next.next is not None:
             traverser = traverser.next
 
         tail = traverser.next
-        traverser.next = None
-        self.tail = traverser
+
+        traverser.next, self.tail = None, traverser
+        self.length -= 1
 
         return tail
 
