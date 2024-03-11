@@ -5,6 +5,7 @@ from .Node import Node
 
 class SLList:
     """Singly Linked list class"""
+
     def __init__(self):
         self.head = None
         self.tail = None
@@ -46,7 +47,7 @@ class SLList:
         """
         new_node = Node(data)
 
-        if self.head is None:
+        if self.is_empty() is True:
             self.head = new_node
             self.tail = new_node
         else:
@@ -67,7 +68,7 @@ class SLList:
         """
         new_node = Node(data)
 
-        if self.head is None:
+        if self.is_empty() is True:
             self.head = new_node
         else:
             self.tail.next = new_node
@@ -78,7 +79,7 @@ class SLList:
         return new_node
 
     def insert_at_index(self, data, index):
-        """Create and insert a node `new_node` at specified index 
+        """Create and insert a node `new_node` at specified index
 
         Args:
             `data` (Any): Payload to store in node
@@ -148,7 +149,7 @@ class SLList:
         return tail
 
     def remove_at_index(self, index):
-        """Remove node at specified index 
+        """Remove node at specified index
 
         Args:
             `index` (int): Index of node to remove
@@ -198,9 +199,36 @@ class SLList:
 if __name__ == "__main__":
     sllist = SLList()
 
-    for num in range(1, 5):
+    print("-" * 40)
+    print("INSERTING NUMBERS 1 TO 5 in ascending order", end="\n\n")
+    print("for num in range(1, 5):")
+    print("    ", end="")
+    print("sllist.insert_at_tail(num)")
+
+    for num in range(1, 6):
         sllist.insert_at_tail(num)
 
+    print("\nCheck insertion")
+    assert (
+        sllist.__str__() == "[1] -> [2] -> [3] -> [4] -> [5] -> None"
+    ), "Should be => [1] -> [2] -> [3] -> [4] -> [5] -> None"
+    print("Checks passed", end="\n\n")
     print(sllist)
-    sllist.insert_at_index(1.5, 1)
+    print("-" * 40)
+
+    print("-" * 40)
+    print("INSERTING NUMBERS 1 TO 5 in descending order", end="\n\n")
+    print("for num in range(1, 6):")
+    print("    ", end="")
+    print("sllist.insert_at_head(num)")
+
+    for num in range(1, 6):
+        sllist.insert_at_head(num)
+
+    print("\nCheck insertion")
+    assert (
+        sllist.__str__() == "[5] -> [4] -> [3] -> [2] -> [1] -> None"
+    ), "Should be => [5] -> [4] -> [3] -> [2] -> [1] -> None"
+    print("Checks passed", end="\n\n")
     print(sllist)
+    print("-" * 40)
