@@ -168,6 +168,8 @@ class SLList:
 
         if index == 0:
             return self.remove_at_head()
+        elif index == self.length - 1:
+            return self.remove_at_tail()
 
         traverser = self.get_head()
         while index != 1:
@@ -176,8 +178,8 @@ class SLList:
 
         node_at_index = traverser.next
         traverser.next = traverser.next.next
-
         node_at_index.next = None
+        self.length -= 1
 
         return node_at_index
 
