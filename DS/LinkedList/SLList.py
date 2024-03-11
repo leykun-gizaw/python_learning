@@ -118,7 +118,9 @@ class SLList:
             raise Exception("List is empty")
 
         head = self.head
+
         self.head = self.head.next
+        self.length -= 1
 
         return head
 
