@@ -66,11 +66,16 @@ class DLList(SLList):
             
     def remove_at_head(self):
         head = self.get_head()
+
         if head is None:
             raise Exception("List is empty")
 
         self.head = self.head.next
-        self.head.prev = None
+
+        if self.head is None:
+            self.tail = None
+        else:
+            self.head.prev = None
 
         head.next = None
         self.length -= 1
