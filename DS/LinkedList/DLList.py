@@ -40,8 +40,13 @@ class DLList(SLList):
 
     def insert_at_index(self, data, index):
         new_node = Node(data, set_previous_pointer=True)
+
         if self.is_empty():
             raise Exception("List is empty")
+        elif index >= self.length:
+            raise Exception("Index out of range")
+        elif index < 0:
+            raise Exception("Negative indices not allowed")
 
         traverser = self.get_head()
 
