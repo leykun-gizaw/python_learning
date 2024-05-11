@@ -25,8 +25,8 @@ class Stack:
     def pop(self):
         if self.is_empty() is not True:
             self.stack_size -= 1
+            self.max_elem_length = max(len(str(elem)) for elem in self.stack_list)
             return self.stack_list.pop()
-        self.max_elem_length = max(len(str(elem)) for elem in self.stack_list)
         return None
 
     def __str__(self):
