@@ -50,13 +50,3 @@ class Queue:
         """Print the queue structure"""
         return self.items.__str__()
     pass
-
-
-if __name__ == "__main__":
-    queue = Queue()
-
-    for num in range(1, 11):
-        queue.enqueue(num)
-
-    print(queue)
-

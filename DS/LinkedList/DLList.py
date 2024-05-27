@@ -145,11 +145,3 @@ class DLList(SLList):
                 head = head.next
         return val
     pass
-
-
-if __name__ == "__main__":
-    lst = DLList()
-    for num in range(15):
-        lst.insert_at_tail(num)
-    
-    print(lst)
