@@ -198,6 +198,13 @@ class SLList:
                 head = head.next
         return val
 
+    def __iter__(self):
+        traverser = self.get_head()
+
+        while traverser is not None:
+            yield traverser
+            traverser = traverser.next
+
     pass
 
 
